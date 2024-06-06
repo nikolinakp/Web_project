@@ -1,7 +1,0 @@
-<?php 
-
-
-include '../history.html';
-?>
-
-
