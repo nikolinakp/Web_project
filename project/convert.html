@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Converter</title>
-    <link rel="stylesheet" href="css/stylessConvert.css">
-    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/stylesConvert.css">
+    <script src="js/convert.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@6.0.2/build/index.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,11 +20,9 @@
 
         <form id="fileForm">
             <input type="file" id="fileInput" name="filename" accept=".html">
-            <button>Submit</button>
+            <button type="submit">Submit</button>
         </form>
 
-    </div>
-    <div>
         <h2>File content:</h2>
         <div id="content"></div>
     </div>
@@ -48,9 +49,6 @@
                 <option value="Portrait">
                 <option value="Landscape">
             </datalist>
-        
-            <label>Maximum number of characters per page:</label>
-            <input type="text">
         
             <label>Maximum number of words per page:</label>
             <input type="text">
@@ -83,10 +81,13 @@
             <input class="mark" type="checkbox">
             </div>
         
-            <button type="submit">Apply to file</button>
+            <button id="applySettings">Apply to file</button>
         </div>
-        
-
     </div>
+
+    <div>
+        <button id="downloadDocx" type="button">Download as .docx</button>
+    </div>
+
 </body>
 </html>

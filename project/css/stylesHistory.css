@@ -1,0 +1,24 @@
+/* Основен стил за таблицата */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Стил за заглавните редове */
+th {
+    background-color: #7edd43;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Стил за обикновените редове */
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Стил за алтернативните редове */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

@@ -9,15 +9,16 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="php/login.php" method="post">
+        <form id="login-form">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="text" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="register.html">Register here</a>.</p>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
+
