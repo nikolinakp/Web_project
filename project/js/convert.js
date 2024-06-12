@@ -29,20 +29,22 @@ document.addEventListener('DOMContentLoaded', function() {
 //save in  database
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('downloadDocx').addEventListener('click', function() {
-        var filename = document.getElementById('fileInput').files[0].name; //filename
-       // console.log(filename);
+        var fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length === 0) {
+            alert('Моля, прикачете HTML файл.');
+            return;
+        }
+        
+        var filename = fileInput.files[0].name; //filename
 
         var div = document.getElementById('content');
         var text = div.innerText || div.textContent; // Взема само текста от div-a
-        //console.log(text);
         var jsonText = JSON.stringify({ content: text });
-        //console.log(jsonText);
-        const extension = 'docx';
 
         const data = {
-            fileName: filename,
+            filename: filename, // Променяме на "filename"
             document: jsonText,
-            extension: extension
+            extension: 'docx'
         };
 
         fetch('php/convert.php', {
@@ -67,41 +69,4 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Грешка:', error));
     });
-
 });
-
-/*document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('downloadDocx').addEventListener('click', function() {
-        
-        var div = document.getElementById('content');
-        var text = div.innerText || div.textContent; // Взема само текста от div-a
-        var filename = document.getElementById('fileInput').files[0].name; // Вземане на името на файла
-
-        var data = {
-            document: text,
-            extension: 'docx',
-            fileName: filename
-        };
-
-        fetch('php/convert.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            try {
-                console.log(data); // Изведи отговора в конзолата
-            } catch (e) {
-                console.error('Отговорът не е валиден JSON:', data);
-            }
-        })
-        .catch(error => console.error('Грешка:', error));
-    });
-});
-*/
-
-
-
